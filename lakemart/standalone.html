@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakemart Supply Agency (Visual Update)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #f7a000; /* Orange/Gold for accents */
+            --secondary-color: #004a77; /* Dark Blue for text/hover */
+            --text-color: #f0f0f0; /* Light text for dark background */
+            --light-bg: rgba(255, 255, 255, 0.1);
+            --whatsapp-color: #25D366;
+            --linkedin-color: #0A66C2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            /* Red and Black Gradient */
+            background: linear-gradient(to right, #110e0e, #07c1e2); /* Dark Red to Black */
+            background-attachment: fixed;
+        }
+
+        /* --- Header/Nav Styling --- */
+        .main-header {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        /* --- Content Sections (General) --- */
+        .content-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .content-section p {
+            color: var(--text-color);
+        }
+
+        /* --- Hero Section & CTA Button --- */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1500x600/2c3e50/ffffff?text=Logistics+Background') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: -20px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        #cta-button {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #cta-button:hover {
+            background-color: #e69100;
+            transform: translateY(-3px);
+            color: white;
+        }
+        
+        /* --- Service Cards --- */
+        .service-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 0; /* Removed padding for image to fill */
+            padding-bottom: 25px; /* Added padding to the bottom only */
+            flex: 1 1 280px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, background-color 0.3s, border-color 0.3s;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            overflow: hidden; /* Ensure image doesn't break border radius */
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px; /* Fixed height for visual consistency */
+            object-fit: cover; /* Ensures images cover the area without distortion */
+            margin-bottom: 15px;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+            padding: 0 15px; /* Padding for text inside card */
+        }
+        .card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0 15px; /* Padding for text inside card */
+        }
+        
+        /* --- Contact Section Specific Styling --- */
+        #contact-section {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 60px 20px;
+            border-radius: 8px;
+        }
+        #contact-section h2 {
+            color: var(--primary-color);
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            text-align: left;
+            margin-top: 30px;
+        }
+        
+        .contact-form-container {
+            flex: 2;
+            min-width: 300px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-info-container {
+            flex: 1;
+            min-width: 250px;
+            padding: 30px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .contact-info-container p {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        .contact-info-container p strong {
+            color: #333;
+        }
+
+        /* Form Styling (Kept same) */
+        .contact-form label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .form-button {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: bold;
+        }
+
+        .form-button:hover {
+            background-color: #e69100;
+            color: white;
+        }
+
+        /* Social Icons (Kept same) */
+        .social-icons {
+            margin-top: 25px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .social-icons a {
+            color: var(--secondary-color);
+            font-size: 2.2rem;
+            margin-right: 20px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- Media Queries (Kept same) --- */
+        @media (max-width: 900px) {
+            .contact-container { flex-direction: column; align-items: center; }
+            .contact-form-container, .contact-info-container { width: 90%; max-width: 500px; }
+            .contact-info-container { margin-top: 20px; }
+            .service-cards { flex-direction: column; align-items: center; }
+            .card { width: 90%; max-width: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <nav>
+            <img src="/assets/images/lakemart_logo.png"><div class="logo">Lakemart Supply</div> 
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact-section">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Your Smart Job Partner</h1>
+                <p>Delivering excellence in Supply Services</p>
+                <a href="#contact-section"><button id="cta-button">Get a Quote</button></a>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>About Us</h2>
+            <p>Lakemart Supply Agency is committed to providing seamless supply solutions. With years of experience, we ensure timely delivery and quality assurance for all your needs. Our dedicated team is passionate about bridging the gap between suppliers and consumers, guaranteeing efficient and reliable delivery every time.</p>
+        </section>
+
+        <section id="services" class="content-section">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                
+                <a href="https://wa.me/254114885586?text=Hello%2C%20I%27m%20interested%20in%20Stationery%20Items." target="_blank" class="card">
+                    <img src="https://via.placeholder.com/280x180/ADD8E6/000000?text=Books+%26+Stationery" alt="Image of books and pens">
+                    <h3>Stationery Items</h3>
+                    <p>High-quality office and school supplies for all your needs.</p>
+                </a>
+                
+                <a href="https://wa.me/254114885586?text=Hello%2C%20I%27m%20interested%20in%20Sports%20Equipment." target="_blank" class="card">
+                    <img src="https://via.placeholder.com/280x180/FFA07A/000000?text=Sports+Equipment+Gear" alt="Image of a basketball or football">
+                    <h3>Sports Equipment</h3>
+                    <p>Gear up with durable and reliable sports equipment.</p>
+                </a>
+                
+                <a href="mailto:lakemartonline@gmail.com?subject=Inquiry%20about%20Cyber%20Services&body=Hello%2C%20I%27m%20interested%20in%20your%20Cyber%20Services." class="card">
+                    <img src="cyber services.JPG" alt="Image of a digital poster and computer screen">
+                    <h3>Cyber Services</h3>
+                    <p>Reliable internet, printing, and digital solutions.</p>
+                </a>
+                
+                <a href="mailto:lakemartonline@gmail.com?subject=Inquiry%20about%20Graphic%20Design&body=Hello%2C%20I%27m%20interested%20in%20your%20Graphic%20Design%20services." class="card">
+                    <img src="graphic design" alt="Image of design tools and a creative layout">
+                    <h3>Graphic Design</h3>
+                    <p>Creative designs for your branding and marketing needs.</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="contact-section">
+            <h2>Get in Touch</h2>
+            <div class="contact-container">
+                
+                <div class="contact-form-container">
+                    <h3>Send Us a Message</h3>
+                    <form class="contact-form" id="inquiryForm">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+
+                        <label for="message">Your Inquiry</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help..."></textarea>
+
+                        <button type="submit" class="form-button">Submit Inquiry</button>
+                    </form>
+                </div>
+
+                <div class="contact-info-container">
+                    <h3>Contact Details</h3>
+                    <p>We're ready to discuss your supply needs.</p>
+                    <br>
+                    <p><strong>Primary Phone:</strong> <a href="tel:+254114885586" style="color: var(--secondary-color); text-decoration: none;">+254 114 885 586</a></p>
+                    <p><strong>Secondary Phone:</strong> <a href="tel:+254751029380" style="color: var(--secondary-color); text-decoration: none;">+254 751 029 380</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:lakemartonline@gmail.com" style="color: var(--secondary-color); text-decoration: none;">lakemartonline@gmail.com</a></p>
+                    <p><strong>Address:</strong> MBITA, HOMA BAY COUNTY, kENYA (Adjuscent to Post Bank Mbita Branch)</p>
+                    <br>
+
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="https://wa.me/254114885586" target="_blank" title="Chat on WhatsApp (+254 114885586)">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    
+                        
+                        <a href="mailto:lakemartonline@gmail.com" title="Send us an Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Lakemart Supply Agency. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for nav links and CTA button
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Contact Form submission handling
+            const inquiryForm = document.getElementById('inquiryForm');
+
+            inquiryForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                
+                // **SIMULATED SUCCESS FEEDBACK**
+                alert(`Thank you, ${name}! Your inquiry has been received. We'll respond to ${email} shortly.`);
+                
+                inquiryForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
